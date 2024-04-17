@@ -22,9 +22,36 @@ def read_data(file_name):
                     data[key].append(int(row[key]))
     return data
 
+def selection_sort(my_list):
+    # print(my_list)
+    # i = 0
+    # minimum = my_list[0]
+    # sorted_list = []
+    # for number in my_list:
+    #     if number < minimum:
+    #         minimum, number = number, minimum
+    #         i += 1
+    #         sorted_list.append(number)
+    #     else:
+    #         sorted_list.append(minimum)
+    # return sorted_list
+    for i in range(len(my_list)):
+        min_idx = i
+        for num_idx in range(i + 1, len(my_list)):
+            if my_list[min_idx] > my_list[num_idx]:
+                min_idx = num_idx
+    # print(my_list)
+    # print(min_idx)
+        my_list[i], my_list[min_idx] = my_list[min_idx], my_list[i]
+    # print(my_list)
+    return my_list
+
+
 def main():
     numbers = read_data("numbers.csv")
     print(numbers)
+    sorting = selection_sort(numbers["series_1"])
+    print(sorting)
 
 if __name__ == '__main__':
     main()
