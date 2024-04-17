@@ -51,11 +51,21 @@ def selection_sort(my_list, direction="ascending"):
     return my_list
 
 
+def bubble_sort(list):
+    print(list)
+    # sorted_list = []
+    for idx in range(len(list)):
+        for i in range(len(list) - idx - 1):
+            if list[i] > list[i + 1]:
+                list[i], list[i + 1] = list[i + 1], list[i]
+    return list
+
 def main():
     numbers = read_data("numbers.csv")
-    print(numbers)
+    # print(numbers)
     sorting = selection_sort(numbers["series_1"], "descending")
-    print(sorting)
-
+    # print(sorting)
+    bubble_sorted = bubble_sort(numbers["series_2"])
+    print(bubble_sorted)
 if __name__ == '__main__':
     main()
